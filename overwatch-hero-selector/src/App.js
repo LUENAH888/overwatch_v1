@@ -13,6 +13,7 @@ const Container = styled.div`
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const WelcomeContainer = styled(Container)`
@@ -44,9 +45,33 @@ const ShowHeroesButton = styled.button`
   }
 `;
 
+const BackButton = styled.button`
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #43484c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  margin-top: 20px;
+  
+  &:hover {
+    background-color: #5a6269;
+    transform: translateX(-3px);
+    box-shadow: 0 0 10px rgba(67, 72, 76, 0.6);
+  }
+
+  &:before {
+    content: '← ';
+    margin-right: 5px;
+  }
+`;
+
 const WelcomeLogo = styled.div`
   max-width: 400px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
   
   img {
     width: 100%;
@@ -73,7 +98,7 @@ function App() {
         <WelcomeContainer>
           <WelcomeLogo>
             <img 
-              src="https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/logo_overwatch.png" 
+              src={`/logo_overwatch.png`}
               alt="Overwatch" 
             />
           </WelcomeLogo>
@@ -91,6 +116,9 @@ function App() {
       <Container>
         <HeroGrid />
         <Logo />
+        <BackButton onClick={() => setShowHeroes(false)}>
+          돌아가기
+        </BackButton>
       </Container>
     </>
   );

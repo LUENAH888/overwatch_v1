@@ -14,7 +14,7 @@ const Logo = () => {
   return (
     <LogoWrapper>
       <img 
-        src="https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/logo_overwatch.png" 
+        src="/logo_overwatch.png"
         alt="Overwatch" 
       />
     </LogoWrapper>

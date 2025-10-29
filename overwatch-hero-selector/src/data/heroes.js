@@ -1,11 +1,13 @@
-import axios from 'axios';
-
 const API_BASE_URL = 'http://localhost:8000/api';
 
 export const fetchHeroes = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/heroes/`);
-    return response.data;
+    const response = await fetch(`${API_BASE_URL}/heroes/`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error('Error fetching heroes:', error);
     return [];
